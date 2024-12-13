@@ -1,0 +1,23 @@
+Explanation of Fixes:
+echo "$FT_NBR1 + $FT_NBR2":
+Ensures proper handling of variable values, including spaces and special characters.
+
+sed "s/'/0/g":
+Replaces all occurrences of ' with 0 in FT_NBR1.
+
+tr '\\"?!' '1234':
+Converts the remaining characters from FT_NBR1 (\, ", ?, and !) into the corresponding digits of base-5.
+
+tr 'mrdoc' '01234':
+Converts characters in FT_NBR2 (mrdoc) into digits of base-5.
+
+xargs echo 'ibase=5; obase=13;':
+Prepares the input for bc, specifying:
+
+ibase=5: Interpret input as base-5.
+obase=13: Convert the result to base-13.
+bc:
+Performs the arithmetic addition and base conversion.
+
+tr '0123456789ABC' 'gtaio luSnemf':
+Converts the base-13 numeric result into the custom alphabet gtaio luSnemf.

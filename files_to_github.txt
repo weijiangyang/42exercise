@@ -1,0 +1,15 @@
+sauvegarder SSH private key and public key in ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub 
+
+# confirmer the connection with the repository github with ssh key:
+ssh -T git@github.com 
+
+if successfully, it will show : Hi weijiangyang! You've successfully authenticated, but GitHub does not provide shell access.
+# add the remote repository with the name "origin"
+git remote set-url origin git@github.com:username/repository.git
+
+#check the remote repository:
+git remote -v
+
+#push to the remote repository:
+git branch -M main
+git push -u origin main

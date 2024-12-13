@@ -1,0 +1,40 @@
+Explanation:
+
+cat /etc/passwd: Displays the contents of the /etc/passwd file.
+sed '/^#/d': Removes lines starting with a #, which are comments.
+awk 'NR % 2 == 1': Outputs every other line, starting from the second.
+rev: Reverses each login name.
+sort -r: Sorts the reversed logins in reverse alphabetical order.
+awk "NR >= FT_LINE1 && NR <= FT_LINE2": Selects lines between FT_LINE1 and FT_LINE2.
+tr '\n' ', ': Converts newlines to commas, separating each login with a comma.
+sed 's/, $/./': Removes the trailing comma and adds a period at the end.
+
+
+The command sed 's/, $/./' is a stream editor operation that replaces text in a stream or file. Here's a detailed breakdown:
+
+Command Breakdown:
+sed: The stream editor.
+s: Indicates a substitution command.
+/, $/:
+/ are the delimiters for the pattern.
+, $ is the pattern to match:
+,: Matches a literal comma.
+$: Anchors the match to the end of a line (matches if the comma is followed by a space and occurs at the line's end).
+/./:
+.: Replacement text; replaces the matched pattern with a period.
+Final Result: Replaces a comma followed by a space at the end of a line with a period.
+Use Case:
+If you have a list of items separated by commas, with a trailing , at the end, this command cleans up the format.
+
+Example:
+Input:
+Copy code
+apple, banana, cherry, 
+Command:
+bash
+Copy code
+echo "apple, banana, cherry, " | sed 's/, $/./'
+Output:
+Copy code
+apple, banana, cherry.
+This is useful for formatting outputs, such as when creating human-readable lists in scripts.

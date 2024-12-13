@@ -1,0 +1,13 @@
+o display the MAC addresses of your machine, use the following command:
+
+bash
+Copy code
+ip link | awk '/ether/ {print $2}'
+Explanation:
+ip link:
+
+Displays network interface details, including MAC addresses (labeled as ether).
+awk '/ether/ {print $2}':
+
+Searches for lines containing the keyword ether.
+Prints the second field, which corresponds to the MAC address.

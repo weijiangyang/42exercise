@@ -1,0 +1,29 @@
+ ls -l : liste all the files and the subdirectories in the current directory with their permissions and time
+ ls -t : liste by the order of creating time
+
+ for  changer les permissions:
+   chmod u=r,g=rx,o=rx filename
+
+ or:
+   chmod 0545 filename
+   (r: 4, w:2, x:1)
+
+ for modify the timestamp:
+   touch -t 202412060000 test
+
+ Common `TIME_STYLE` values:
+
+- `full-iso`: Displays the full timestamp (`YYYY-MM-DD HH:MM:SS`).
+- `long-iso`: Displays date and time (`YYYY-MM-DD HH:MM`).
+- `locale`: Uses the system's locale settings.
+
+the command `tar -cf testShell00.tar testShell00` is used to create a tar archive of the directory or file named `testShell00`. Here's a breakdown of the command:
+
+---
+
+### **Command Breakdown**
+
+- `tar`: The command-line utility used for creating, extracting, and manipulating tar archives.
+- `c`: Stands for "create." This tells `tar` to create a new archive.
+- `f`: Specifies the name of the archive file. In this case, the archive will be called `testShell00.tar`.
+- `testShell00`: The file or directory to be added to the archive.

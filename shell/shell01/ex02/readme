@@ -1,0 +1,18 @@
+To find all file names that end with .sh in the current directory and its sub-directories and display their names without the .sh extension, you can use the following command:
+
+bash
+Copy code
+find . -type f -name "*.sh" -exec basename {} .sh \;
+Explanation:
+find .:
+
+Searches in the current directory (.) and all its subdirectories.
+-type f:
+
+Limits the search to files only.
+-name "*.sh":
+
+Filters for file names ending with .sh.
+-exec basename {} .sh \;:
+
+For each matching file, the basename command is used to remove the .sh extension and display only the file name.

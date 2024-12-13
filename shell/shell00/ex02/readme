@@ -1,0 +1,7 @@
+To create a symbolic link like the one described:
+ln -s test0 test6
+
+For Set a File to a Specific Size:
+truncate -s 1K filename
+
+tar -cf ex02.tar *

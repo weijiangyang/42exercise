@@ -1,0 +1,5 @@
+vim  "\\?\$*’MaRViN’*\$?\\"
+
+le "\" dans la fin est un caractère special pour indiquer que la commande n'est pas fini . Donc il faut ajouter "\" devant pour eviter ça. 
+
+$* et $? sont des caractères speciaux qui indiquent des variables environnements . Donc il faut ajouter "\" devant pour les afficher comme ils soient. 

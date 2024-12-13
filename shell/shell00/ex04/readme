@@ -1,0 +1,6 @@
+Components of ls -lmtp:
+ls: The base command to list files and directories.
+-l: This option lists the files in long format, showing detailed information.
+-t: This option sorts files by modification time in descending order (newest first).
+-m: This option lists entries with a comma-separated format (useful for readable listing).
+-p: This option marks directories with a trailing slash / in the output.

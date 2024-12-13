@@ -1,0 +1,29 @@
+A magic file rule is for the purpose of identifying files based on specific characteristics.
+1. Create the ft_magic File
+Use a text editor to create a file named ft_magic and add the following content:
+
+go
+Copy code
+41    string    42    42 file type
+
+Explanation of the Content
+42: Specifies the offset (starting at byte 42) where the magic test begins.
+string: Indicates that the type of data being matched is a string.
+42: The exact string to match at the specified offset.
+42 file type: The description that will be output if the condition is met.
+
+2. Test the Magic File
+2.1 Create a Test File
+Use a tool like dd or any text editor to create a test file with the string 42 at the 42nd byte:
+
+bash
+Copy code
+printf '%040s42' > test_file
+This command creates a file where the first 41 bytes are spaces, followed by 42.
+
+2.2 Test the File with file
+Run the file command with the -m option to specify the custom magic file:
+
+bash
+Copy code
+file -m ft_magic test_file

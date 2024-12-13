@@ -1,0 +1,21 @@
+To count and display the number of regular files and directories, including the current directory (.), in the current directory and all its sub-directories, you can use the following command:
+
+bash
+Copy code
+find . -type f -o -type d | wc -l
+Explanation:
+find .:
+
+Starts searching from the current directory (.).
+-type f:
+
+Matches regular files.
+-o:
+
+Logical OR operator to combine conditions.
+-type d:
+
+Matches directories.
+wc -l:
+
+Counts the number of lines in the output, which corresponds to the number of files and directories found&.

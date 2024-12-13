@@ -1,0 +1,24 @@
+Commande complète :
+bash
+Copy code
+groups $FT_USER | cut -d ':' -f 2 | tr ' ' ',' | sed 's/^,//'
+Explications :
+groups $FT_USER : Affiche les groupes pour l'utilisateur contenu dans FT_USER.
+cut -d ':' -f 2 : Extrait la partie après les deux-points (:).
+tr ' ' ',' : Remplace les espaces par des virgules.
+sed 's/^,//' : Supprime la première virgule :
+s/ : Indique une substitution.
+^, : Correspond à une virgule (,) située au début (^) de la chaîne.
+/ : Termine la substitution et remplace par rien (supprime la virgule).
+
+
+Create a New User (if needed): If the user does not exist and you want to create it, you can do so with the following command (requires root privileges):
+
+bash
+Copy code
+sudo useradd John
+Then, set a password for the user:
+
+bash
+Copy code
+sudo passwd John

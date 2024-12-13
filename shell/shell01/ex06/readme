@@ -1,0 +1,17 @@
+To display every other line of the output from the ls -l command, starting from the first line, you can use the sed command as follows:
+
+bash
+Copy code
+ls -l | sed -n '1~2p'
+Explanation:
+
+ls -l: Lists files in long format.
+sed -n '0~2p':
+0~2: This is a sed command to print every 2nd line, starting from line 0.
+p: This prints the matched lines.
+
+
+
+
+
+
