@@ -1,0 +1,45 @@
+List of Unprintable ASCII Characters
+Here are the unprintable control characters with their corresponding decimal and hexadecimal codes:
+
+Decimal	Hex	Abbreviation	Description
+0	00	NUL	Null
+1	01	SOH	Start of Header
+2	02	STX	Start of Text
+3	03	ETX	End of Text
+4	04	EOT	End of Transmission
+5	05	ENQ	Enquiry
+6	06	ACK	Acknowledge
+7	07	BEL	Bell (Alert)
+8	08	BS	Backspace
+9	09	HT	Horizontal Tab
+10	0A	LF	Line Feed
+11	0B	VT	Vertical Tab
+12	0C	FF	Form Feed
+13	0D	CR	Carriage Return
+14	0E	SO	Shift Out
+15	0F	SI	Shift In
+16	10	DLE	Data Link Escape
+17	11	DC1	Device Control 1 (XON)
+18	12	DC2	Device Control 2
+19	13	DC3	Device Control 3 (XOFF)
+20	14	DC4	Device Control 4
+21	15	NAK	Negative Acknowledge
+22	16	SYN	Synchronous Idle
+23	17	ETB	End of Transmission Block
+24	18	CAN	Cancel
+25	19	EM	End of Medium
+26	1A	SUB	Substitute
+27	1B	ESC	Escape
+28	1C	FS	File Separator
+29	1D	GS	Group Separator
+30	1E	RS	Record Separator
+31	1F	US	Unit Separator
+127	7F	DEL	Delete
+How to Use Unprintable ASCII Characters
+In Programming:
+You can include these characters using escape sequences.
+Example in C: \n for newline, \t for tab, or \x1B for escape.
+In Text Editors:
+Some text editors show these characters as symbols (e.g., ␀ for NUL) or as empty spaces.
+Via Keyboard:
+These characters can't be directly typed but can be triggered using software tools or specific key combinations, depending on the system.
