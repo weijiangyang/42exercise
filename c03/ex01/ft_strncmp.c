@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:02:19 by weijiangyang     ###   ########.fr       */
+/*   Created: 2024/12/30 11:57:18 by weijiangyang      #+#    #+#             */
+/*   Updated: 2025/01/02 10:41:10 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
-int	ft_str_is_numeric(char *str);
+int	ft_strncmp(char *s1, char *s2, unsigned int n);
 
-int	main(void)
+int	main(char *char1, char *char2)
 {
-	char	*message;
 	int		result;
 
-	message = "";
-	result = ft_str_is_numeric(message);
-	printf ("%d\n", result);
-	return (0);
+	char1 = "apple";
+	char2 = "applehh";
+	result = ft_strncmp(char1, char2, 1);
+	printf("%d", result);
+	return (result);
 }
 
-int	ft_str_is_numeric(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	flag;
+	int	result;
+	int	compte;
 
-	flag = 1;
-	while (*str)
+	compte = 1;
+	result = 0;
+	while ((*s1 || *s2) && compte <= n)
 	{
-		if (!isdigit(*str))
-		{
-			flag = 0;
-		}
-		str++;
+		if (*s1 != *s2)
+			return ((int)(*s1 - *s2));
+		s1++;
+		s2++;
+		compte++;
 	}
-	return (flag);
+	return (result);
 }

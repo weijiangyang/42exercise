@@ -1,44 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:02:19 by weijiangyang     ###   ########.fr       */
+/*   Created: 2025/01/03 15:37:00 by weijiangyang      #+#    #+#             */
+/*   Updated: 2025/01/03 15:42:51 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
-int	ft_str_is_numeric(char *str);
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
 
 int	main(void)
 {
-	char	*message;
-	int		result;
+	char	dest[100] = "Hello, ";
+	char	*src;
+	char	*result;
 
-	message = "";
-	result = ft_str_is_numeric(message);
-	printf ("%d\n", result);
+	src = "les gars!";
+	result = ft_strncat(dest, src, 5);
+	printf ("%s", result);
 	return (0);
 }
 
-int	ft_str_is_numeric(char *str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	flag;
+	int	index;
+	int	i;
 
-	flag = 1;
-	while (*str)
+	index = 0;
+	i = 0;
+	while (dest[index])
 	{
-		if (!isdigit(*str))
-		{
-			flag = 0;
-		}
-		str++;
+		index++;
 	}
-	return (flag);
+	while (src[i] && i <= nb - 1)
+	{
+		dest[index] = src[i];
+		index++;
+		i++;
+	}
+	if (i == nb)
+		dest[index] = '\0';
+	return (dest);
 }

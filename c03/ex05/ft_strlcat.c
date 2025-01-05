@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:02:19 by weijiangyang     ###   ########.fr       */
+/*   Created: 2025/01/05 16:57:16 by weijiangyang      #+#    #+#             */
+/*   Updated: 2025/01/05 17:37:48 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 
-int	ft_str_is_numeric(char *str);
+int	ft_strlcat(char *dest, char *src, unsigned int size);
 
 int	main(void)
 {
-	char	*message;
+	char	dest[20] = "hello";
+	char	*src;
 	int		result;
 
-	message = "";
-	result = ft_str_is_numeric(message);
-	printf ("%d\n", result);
+	src = "les gars!";
+	result = ft_strlcat(dest, src, 12);
+	printf("%d", result);
 	return (0);
 }
 
-int	ft_str_is_numeric(char *str)
+int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	flag;
+	int	compte;
 
-	flag = 1;
-	while (*str)
+	compte = 0;
+	while (*dest)
 	{
-		if (!isdigit(*str))
-		{
-			flag = 0;
-		}
-		str++;
+		compte++;
+		dest++;
 	}
-	return (flag);
+	while (*src)
+	{
+		*dest = *src;
+		compte++;
+		dest++;
+		src++;
+	}
+	return (compte);
 }

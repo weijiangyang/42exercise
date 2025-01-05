@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:02:19 by weijiangyang     ###   ########.fr       */
+/*   Created: 2024/12/20 16:30:12 by weijiangyang      #+#    #+#             */
+/*   Updated: 2024/12/20 16:43:21 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 
-int	ft_str_is_numeric(char *str);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
 int	main(void)
 {
-	char	*message;
+	char	*source = "Salut, good morning!";
 	int		result;
+	char	dest[8];
 
-	message = "";
-	result = ft_str_is_numeric(message);
+	result = ft_strlcpy(dest, source, sizeof(dest));
 	printf ("%d\n", result);
 	return (0);
 }
 
-int	ft_str_is_numeric(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	flag;
+	int	count;
+	int	index;
 
-	flag = 1;
-	while (*str)
+	count = 0;
+	index = 0;
+	while (*src)
 	{
-		if (!isdigit(*str))
+		if (size && index < size)
 		{
-			flag = 0;
+			*dest = *src;
+			index++;
+			dest++;
 		}
-		str++;
+		src++;
+		count++;
 	}
-	return (flag);
+	return (count);
 }
