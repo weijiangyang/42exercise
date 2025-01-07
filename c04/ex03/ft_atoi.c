@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 22:08:43 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/07 16:17:49 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/07 16:20:50 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ char	*ft_atoi(char *str)
 	char	dest[1000];
 	int		index;
 	char	*copied;
-	int		negative;
 
 	copied = dest;
 	index = 0;
-	negative = is_negative(str);
-	if (negative)
+	if (is_negative(str))
 	{
 		dest[0] = '-';
 		index++;
