@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:55:28 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/10 22:00:50 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/13 14:28:27 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	ft_putnbr_base(int nbr, char *base);
 int		is_base_valide(char *base);
 int		is_double(char *base);
-int		size_char(char *str);
 
 int	main(void)
 {
-	ft_putnbr_base(125, "01");
+	ft_putnbr_base(125, "0123456789abcdef");
 	return (0);
 }
 
@@ -27,7 +26,13 @@ void	ft_putnbr_base(int nbr, char *base)
 {
 	int	size;
 
-	size = size_char(base);
+	size = 0;
+	while (*base)
+	{
+		size++;
+		base++;
+	}
+	base = base - size;
 	if (is_base_valide(base) && nbr > 0)
 	{
 		ft_putnbr_base(nbr / size, base);
@@ -39,7 +44,13 @@ int	is_base_valide(char *base)
 {
 	int	size;
 
-	size = size_char(base);
+	size = 0;
+	while (*base)
+	{
+		size++;
+		base++;
+	}
+	base = base - size;
 	if (size <= 1)
 		return (0);
 	if (is_double(base))
@@ -55,13 +66,19 @@ int	is_base_valide(char *base)
 
 int	is_double(char *str)
 {
-	int	i;
+	int	i ;
 	int	j;
 	int	size;
 
-	size = size_char(str);
+	size = 0;
+	while (*str)
+	{
+		size++;
+		str++;
+	}
+	str = str - size;
 	i = 0;
-	while (size - 1)
+	while (i < size - 1)
 	{
 		j = i + 1;
 		while (j < size)
@@ -73,17 +90,4 @@ int	is_double(char *str)
 		i++;
 	}
 	return (0);
-}
-
-int	size_char(char *str)
-{
-	int	compte;
-
-	compte = 0;
-	while (*str)
-	{
-		compte++;
-		str++;
-	}
-	return (compte);
 }
