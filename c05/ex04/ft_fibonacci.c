@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:51:49 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/14 11:52:14 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/14 11:54:05 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_fibonacci(int index)
 {
 	int	result;
 
+	if (index < 0)
+		return (-1);
 	if (index == 0)
 		return (0);
 	if (index == 1)
