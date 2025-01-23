@@ -6,17 +6,17 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:55:38 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/23 11:04:56 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/23 11:35:00 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_strjoin(int size, char **strs, char *sep);
 int		size_chars(char *str);
-void	mot_conct( char *str1, char *str2);
-void	mot_redu(char *str, int nb);
 int		size_chars_array(char **str, int size);
+void	mot_conct(char array[], char *str, char *sep);
 
 int	main(void)
 {
@@ -26,7 +26,7 @@ int	main(void)
 	char	*result;
 
 	size = 4;
-	sep = ", ";
+	sep = "!!!!!!!!!!!!!!!!!!! ";
 	result = ft_strjoin(size, strings, sep);
 	printf ("%s\n", result);
 	return (0);
@@ -47,14 +47,13 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	index = 0;
 	size_sep = size_chars(sep);
 	size_mots = size_chars_array(strs, size);
-	array = malloc ((size_mots + size * size_sep) * sizeof(char));
-	while (index < size)
+	array = malloc ((size_mots + (size - 1) * size_sep) * sizeof(char));
+	while (index < size - 1)
 	{
-		mot_conct(array, strs[index]);
-		mot_conct(array, sep);
+		mot_conct(array, strs[index], sep);
 		index++;
 	}
-	mot_redu(array, size_sep);
+	mot_conct(array, strs[index], NULL );
 	return (array);
 }
 
@@ -87,33 +86,28 @@ int	size_chars_array(char **str, int size)
 	return (size_mots);
 }
 
-void	mot_conct(char str[], char *sep)
+void	mot_conct(char array[], char *str, char *sep)
 {
 	int	index;
 
 	index = 0;
-	while (str[index])
+	while (array[index])
 	{
 		index++;
 	}
-	while (*sep)
-	{
-		str[index] = *sep;
-		sep++;
-		index++;
-	}
-}
-
-void	mot_redu(char *str, int nb)
-{
-	int	size;
-
-	size = 0;
 	while (*str)
 	{
-		size++;
+		array[index] = *str;
 		str++;
+		index++;
 	}
-	str = str - size;
-	str[size - nb] = '\0';
+	if (sep != NULL)
+	{
+		while (*sep)
+		{
+			array[index] = *sep;
+			sep++;
+			index++;
+		}
+	}
 }
