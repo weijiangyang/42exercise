@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:55:28 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/13 14:28:27 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/24 12:04:07 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,22 @@ int		is_double(char *base);
 
 int	main(void)
 {
-	ft_putnbr_base(125, "0123456789abcdef");
+	ft_putnbr_base(-750, "0123456789abcdef");
 	return (0);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int	size;
+	char	negative;
 
-	size = 0;
-	while (*base)
+	negative = '-';
+	size = is_base_valide(base);
+	if (is_base_valide(base) && nbr < 0)
 	{
-		size++;
-		base++;
+		nbr = -nbr;
+		write (1, &negative, 1);
 	}
-	base = base - size;
 	if (is_base_valide(base) && nbr > 0)
 	{
 		ft_putnbr_base(nbr / size, base);
@@ -61,12 +62,12 @@ int	is_base_valide(char *base)
 			return (0);
 		base ++;
 	}
-	return (1);
+	return (size);
 }
 
 int	is_double(char *str)
 {
-	int	i ;
+	int	i;
 	int	j;
 	int	size;
 
