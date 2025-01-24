@@ -6,32 +6,33 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 22:08:43 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/07 16:20:50 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/24 11:36:42 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_atoi(char *str);
-int		is_digit(char letter);
-int		is_negative(char *str);
+int	chars_to_int(char *str, int size);
+int	ten_pow(int nbr);
+int	ft_atoi(char *str);
+int	is_digit(char letter);
+int	is_negative(char *str);
 
 int	main(void)
 {
-	char	*result;
+	int	result;
 
-	result = ft_atoi("- ---+--+1234ab567");
-	printf ("%s", result);
+	result = ft_atoi("-- ---+--+--120b567");
+	printf ("%d", result);
 	return (0);
 }
 
-char	*ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	char	dest[1000];
 	int		index;
-	char	*copied;
+	int		result;
 
-	copied = dest;
 	index = 0;
 	if (is_negative(str))
 	{
@@ -47,7 +48,7 @@ char	*ft_atoi(char *str)
 		index++;
 	}
 	dest[index] = '\0';
-	return (copied);
+	return (chars_to_int(dest, index));
 }
 
 int	is_digit(char letter)
@@ -69,7 +70,7 @@ int	is_negative(char *str)
 	int	compte;
 
 	compte = 0;
-	while (*str == ' ' || *str == '+' || *str == '-')
+	while (!is_digit(*str))
 	{
 		if (*str == '-')
 			compte++;
@@ -79,4 +80,43 @@ int	is_negative(char *str)
 		return (1);
 	else
 		return (0);
+}
+
+int	chars_to_int(char *str, int size)
+{
+	int	result;
+	int	index;
+	int	sign;
+
+	sign = 1;
+	index = 1;
+	result = 0;
+	if (*str == '-')
+	{
+		sign = -1 ;
+		str++;
+		index++;
+	}
+	while (*str)
+	{
+		result += ((int)*str - 48) * ten_pow(size - index);
+		index++;
+		str++;
+	}
+	return (sign * result);
+}
+
+int	ten_pow(int nbr)
+{
+	int	result;
+	int	index;
+
+	result = 1;
+	index = 0;
+	while (index < nbr)
+	{
+		result *= 10;
+		index++;
+	}
+	return (result);
 }
