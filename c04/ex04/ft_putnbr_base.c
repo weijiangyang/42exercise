@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:55:28 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/24 12:04:07 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/24 12:06:28 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	size;
+	int		size;
 	char	negative;
 
 	negative = '-';
