@@ -6,15 +6,16 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:04:38 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/13 21:15:00 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/23 22:21:58 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-int		ft_atoi_base(char *str, char *base);
+char	*ft_atoi_base(char *str, char *base);
 int		ten_pow(int nbr);
-void	ft_putnbr_base(int nbr, char *base);
+char		*ft_putnbr_base(int nbr, char *base, int index);
 int		is_base_valide(char *base);
 int		is_double(char *str);
 
@@ -22,13 +23,16 @@ int	main(void)
 {
 	char	*str;
 	int		result;
-
+	char *base;
+	
+	base = "0123456789abcdef";
 	str = "12345";
-	ft_atoi_base(str, "0123456789abcde");
+	result = ft_atoi_base(str, base);
+	printf ("%d\n", result);
 	return (0);
 }
 
-int	ft_atoi_base(char *str, char *base)
+char	*ft_atoi_base(char *str, char *base)
 {
 	int	index;
 	int	result;
@@ -48,8 +52,8 @@ int	ft_atoi_base(char *str, char *base)
 	{
 		result += copied[index - 1] * ten_pow(size - index);
 		index--;
-	}
-	ft_putnbr_base(result, base);
+	i
+        return ft_putnbr_base(result, base, size - 1);
 }
 
 int	ten_pow(int nbr)
@@ -67,11 +71,14 @@ int	ten_pow(int nbr)
 	return (result);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+char	*ft_putnbr_base(int nbr, char *base , int index)
 {
 	int	size;
+	int	result;
+	char	copied[1000];
 
 	size = 0;
+	result = 0;
 	while (*base)
 	{
 		size++;
@@ -80,9 +87,11 @@ void	ft_putnbr_base(int nbr, char *base)
 	base = base - size;
 	if (is_base_valide(base) && nbr > 0)
 	{
-		ft_putnbr_base(nbr / size, base);
-		write (1, &base[nbr % size], 1);
+		ft_putnbr_base(nbr / size, base, index - 1);
+		copied[index] = base[nbr % size];
+//write (1, &base[nbr % size], 1);
 	}
+	return copied;
 }
 
 int	is_base_valide(char *base)
