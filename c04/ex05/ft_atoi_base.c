@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:04:38 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/23 22:21:58 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/29 10:38:26 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int		is_double(char *str);
 int	main(void)
 {
 	char	*str;
-	int		result;
+char		*result;
 	char *base;
 	
 	base = "0123456789abcdef";
 	str = "12345";
 	result = ft_atoi_base(str, base);
-	printf ("%d\n", result);
+	printf ("%s\n", result);
 	return (0);
 }
 
@@ -52,8 +52,8 @@ char	*ft_atoi_base(char *str, char *base)
 	{
 		result += copied[index - 1] * ten_pow(size - index);
 		index--;
-	i
-        return ft_putnbr_base(result, base, size - 1);
+	}
+        ft_putnbr_base(result, base, size - 1);
 }
 
 int	ten_pow(int nbr)
@@ -75,8 +75,9 @@ char	*ft_putnbr_base(int nbr, char *base , int index)
 {
 	int	size;
 	int	result;
-	char	copied[1000];
+	char	*copied;
 
+	copied = base;
 	size = 0;
 	result = 0;
 	while (*base)
@@ -111,7 +112,7 @@ int	is_base_valide(char *base)
 		return (0);
 	while (*base)
 	{
-		if (*base == '+' || *base == '-')
+		if (*base == '+' || *base == '-' )
 			return (0);
 		base ++;
 	}

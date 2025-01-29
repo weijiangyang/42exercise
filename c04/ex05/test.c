@@ -1,12 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:42:23 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/26 21:44:07 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/29 10:48:31 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +16,16 @@ int	number_match(char letter, char *base);
 int	ft_pow(int nbr, int size);
 int	ft_atoi_base(char *str, char *base);
 
-/*int	main(void)
+int	main(void)
 {
 	int	result;
 
 	char	*base = "0123456789abcdef";
-	char	*str = "-+++-cafe-12";
+	char	*str = "-+--cafe-45";
 	result = ft_atoi_base(str, base);
 	printf ("%d\n", result);
 	return (0);
-}*/
+}
 
 int	ft_atoi_base(char *str, char *base)
 {
@@ -38,6 +36,7 @@ int	ft_atoi_base(char *str, char *base)
 
 	compte = 0;
 	index = 0;
+	sign = 1;
 	while (*str && !number_match(*str, base))
 	{
 		if (*str == '-')
@@ -50,6 +49,8 @@ int	ft_atoi_base(char *str, char *base)
 		index++;
 		str++;
 	}
+	dest[index] = '\0';
+//	printf ("%lu\n", sizeof(dest));
 	if (compte % 2)
 		sign = -1;
 	return (sign * chars_to_int(dest, base, index));
@@ -80,7 +81,7 @@ int	is_base_valide(char *base)
 		return (0);
 	while (base[index])
 	{
-		if (base[index] == '+' || base[index] == '-')
+		if (base[index] == '+' || base[index] == '-' || base[index] == ' ')
 			return (0);
 		j = index + 1;
 		while (base[j])
