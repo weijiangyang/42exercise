@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:15:01 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/20 21:21:24 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/01/30 21:29:37 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(void)
 	char	*str;
 
 	str = ft_strdup("salut");
+	printf ("%s\n", str);
+	free(str);
 	return (0);
 }
 
@@ -37,12 +39,13 @@ char	*ft_strdup(char *s)
 		s++;
 	}
 	s = s - size;
-	memory = malloc(size * sizeof(char));
+	memory = malloc((size + 1) * sizeof(char));
 	while (i < size)
 	{
 		memory[i] = *s;
 		i++;
 		s++;
 	}
+	memory[i] = '\0';
 	return (memory);
 }
