@@ -1,0 +1,138 @@
+<sys/stat.h> is a C/C++ header file that provides macros, data structures, and function declarations for retrieving file status information. It is used in Unix-like operating systems (Linux, macOS) and provides functions related to file attributes, permissions, and metadata.
+
+Commonly Used Functions and Macros
+struct stat – Stores file metadata (size, permissions, timestamps, etc.).
+stat() / fstat() / lstat() – Retrieve file status information.
+Macros for File Type Checking:
+S_ISREG(mode) → Regular file
+S_ISDIR(mode) → Directory
+S_ISLNK(mode) → Symbolic link
+S_ISCHR(mode) → Character device
+S_ISBLK(mode) → Block device
+S_ISFIFO(mode) → FIFO (named pipe)
+S_ISSOCK(mode) → Socket
+File Permission Macros:
+S_IRUSR, S_IWUSR, S_IXUSR (User read, write, execute)
+S_IRGRP, S_IWGRP, S_IXGRP (Group permissions)
+S_IROTH, S_IWOTH, S_IXOTH (Others' permissions)
+Example Usage
+c
+Copy
+Edit
+#include <stdio.h>
+#include <sys/stat.h>
+
+int main() {
+    struct stat fileStat;
+    
+    if (stat("example.txt", &fileStat) == 0) {
+        printf("File size: %ld bytes\n", fileStat.st_size);
+        printf("Permissions: %o\n", fileStat.st_mode & 0777);
+    } else {
+        perror("stat");
+    }
+
+    return 0;
+}
+This checks the size and permissions of example.txt.
+
+
+
+
+
+
+
+You said:
+%ld is what
+ChatGPT said:
+%ld is a format specifier in C used with functions like printf() and scanf() to handle long integer (long int) values.
+
+Explanation:
+l (lowercase L) → Specifies a long type modifier.
+d → Stands for a signed decimal integer.
+Example Usage:
+c
+Copy
+Edit
+#include <stdio.h>
+
+int main() {
+    long int num = 1234567890;
+    printf("The number is: %ld\n", num);
+    return 0;
+}
+Output:
+
+csharp
+Copy
+Edit
+The number is: 1234567890
+Related Format Specifiers:
+Specifier	Data Type	Example
+%d	int	1234
+%ld	long int	1234567890
+%lld	long long int	9223372036854775807
+%u	unsigned int	4294967295
+%lu	unsigned long int	18446744073709551615
+Use %ld when working with long int variables to ensure correct formatting. 🚀
+
+
+Usage in open()
+c
+Copy
+Edit
+#include <fcntl.h>  // Required for open()
+#include <unistd.h> // Required for close()
+
+int file = open("example.txt", O_RDONLY);
+O_RDONLY means:
+The file is opened only for reading.
+Writing is not allowed.
+If the file does not exist, open() returns -1.
+Common Flags Used with open()
+Flag	Description
+O_RDONLY	Open for reading only
+O_WRONLY	Open for writing only
+O_RDWR	Open for reading & writing
+O_CREAT	Create the file if it doesn’t exist
+O_APPEND	Append data to the end of the file
+O_TRUNC	Truncate file (delete contents if it exists)
+Example with Error Handling
+c
+Copy
+Edit
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main() {
+    int file = open("example.txt", O_RDONLY);
+    if (file == -1) {
+        perror("open");
+        return 1;
+    }
+
+    char buf[100];
+    int size = read(file, buf, 99);
+    if (size > 0) {
+        buf[size] = '\0';  // Null-terminate
+        printf("Read: %s\n", buf);
+    }
+
+    close(file);
+    return 0;
+}
+What Happens If:
+✅ File exists → Opens normally in read-only mode.
+❌ File does not exist → open() returns -1 and perror("open") prints an error.
+❌ No read permission → open() returns -1.
+
+Would you like more details on handling errors with open()? 😊
+
+
+
+
+
+
+
+
