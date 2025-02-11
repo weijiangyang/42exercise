@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 void ft_putnbr(int n)
@@ -17,7 +16,6 @@ void ft_putnbr(int n)
 		}
 		else
 			n = -n;
-		
 	}
 	if  (n/10 > 0)
 	{
