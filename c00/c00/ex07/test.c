@@ -7,12 +7,17 @@ void ft_putnbr(int n)
 	char c;
 	char s;
 
-	s = '\0';
 	if (n < 0)
 	{
-		s = -(n % 10) + '0';
-		write (1, &"-", 1);
-		n = -1 * (n / 10);
+		write (1, "-", 1);
+		if (n == -2147483648)
+		{
+			write (1, "2", 1);
+			n = 147483648;
+		}
+		else
+			n = -n;
+		
 	}
 	if  (n/10 > 0)
 	{
@@ -22,8 +27,6 @@ void ft_putnbr(int n)
 	else
 		c = n + '0';
 	write (1, &c, 1);
-	if (s)
-		write (1, &s, 1);
 }
 
 int main(int argc, char **argv)
