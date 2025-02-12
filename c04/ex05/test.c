@@ -16,7 +16,7 @@ int	number_match(char letter, char *base);
 int	ft_pow(int nbr, int size);
 int	ft_atoi_base(char *str, char *base);
 
-int	main(void)
+/*int	main(void)
 {
 	int	result;
 
@@ -25,7 +25,7 @@ int	main(void)
 	result = ft_atoi_base(str, base);
 	printf ("%d\n", result);
 	return (0);
-}
+}*/
 
 int	ft_atoi_base(char *str, char *base)
 {
@@ -37,10 +37,14 @@ int	ft_atoi_base(char *str, char *base)
 	compte = 0;
 	index = 0;
 	sign = 1;
+	while (*str == ' ')
+		str++;
 	while (*str && !number_match(*str, base))
 	{
 		if (*str == '-')
 			compte ++;
+		if (*str == ' ')
+			return 0;
 		str++;
 	}
 	while (*str && number_match(*str, base))
@@ -135,4 +139,5 @@ int	chars_to_int(char *str, char *base, int size)
 		index--;
 	}
 	return (result);
+
 }

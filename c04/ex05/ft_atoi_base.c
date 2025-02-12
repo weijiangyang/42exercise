@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:04:38 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/29 10:38:26 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/12 07:30:43 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char		*ft_putnbr_base(int nbr, char *base, int index);
 int		is_base_valide(char *base);
 int		is_double(char *str);
 
-int	main(void)
+/*int	main(void)
 {
 	char	*str;
 char		*result;
@@ -30,7 +30,7 @@ char		*result;
 	result = ft_atoi_base(str, base);
 	printf ("%s\n", result);
 	return (0);
-}
+}*/
 
 char	*ft_atoi_base(char *str, char *base)
 {
