@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 07:04:55 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/02/12 07:04:58 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/12 07:13:46 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	ft_atoi(const char *str)
 
 	negative = 1;
 	res = 0;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
+	while (*str && (*str < 33|| *str == 127))
 		str++;
 	while (*str == '-' || *str == '+')
 	{
@@ -29,7 +28,7 @@ int	ft_atoi(const char *str)
 	while ( *str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - 48);
-		++str;
+		str++;
 	}
 	return (res * negative);
 }
