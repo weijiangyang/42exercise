@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:55:28 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/24 12:06:28 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/12 07:28:23 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	ft_putnbr_base(int nbr, char *base);
 int		is_base_valide(char *base);
 int		is_double(char *base);
 
-int	main(void)
+/*int	main(void)
 {
 	ft_putnbr_base(-750, "0123456789abcdef");
 	return (0);
-}
+}*/
 
 void	ft_putnbr_base(int nbr, char *base)
 {
@@ -46,8 +46,10 @@ int	is_base_valide(char *base)
 	int	size;
 
 	size = 0;
-	while (*base)
+	while (*base && *base > 32 && *base < 127)
 	{
+		if (*base < 33 || *base == 127)
+			return 0;
 		size++;
 		base++;
 	}
