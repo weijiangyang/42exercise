@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 22:08:43 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/24 11:36:42 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/11 23:03:27 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,24 @@ int	is_negative(char *str);
 
 int	main(void)
 {
-	int	result;
+	char s = ' ';
+	int result;
+	result = is_digit(s);
+	printf("%d\n", result);
+/*	int	result;
 
-	result = ft_atoi("-- ---+--+--120b567");
+	result = ft_atoi(" -- ---+--+--120b567");
 	printf ("%d", result);
-	return (0);
+	return (0);*/
+printf("42:%d\n", ft_atoi("  \n  42t4457"));
+	printf("-42:%d\n", ft_atoi(" --+-42sfs:f545"));
+	printf("0:%d\n", ft_atoi("\0 1337"));
+	printf("0:%d\n", ft_atoi("-0"));
+	printf("0:%d\n", ft_atoi(" - 1 3 2 5 6 3 2 1 6 7"));
+	printf("-1325632167:%d\n", ft_atoi("-1325632167"));
+	printf("-100:%d\n", ft_atoi("-100"));
+	printf("min:%d\n", ft_atoi("\t---+2147483648"));
+	printf("max:%d\n", ft_atoi("\v2147483647"));
 }
 
 int	ft_atoi(char *str)
@@ -32,7 +45,6 @@ int	ft_atoi(char *str)
 	char	dest[1000];
 	int		index;
 	int		result;
-
 	index = 0;
 	if (is_negative(str))
 	{
