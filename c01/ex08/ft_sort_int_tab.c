@@ -6,14 +6,14 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:49:15 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/17 10:57:47 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 12:14:52 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_sort_int_tab(int *tab, int size);
+/*void	ft_sort_int_tab(int *tab, int size);
 
 int	main(void)
 {
@@ -36,7 +36,7 @@ int	main(void)
 		index++;
 	}
 	return (0);
-}
+}*/
 
 void	ft_sort_int_tab(int *tab, int size)
 {
