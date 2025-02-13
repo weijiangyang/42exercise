@@ -6,13 +6,13 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 11:22:25 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/12 11:32:47 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 12:00:41 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_swap(int *a, int *b);
+/*void	ft_swap(int *a, int *b);
 
 int	main(void)
 {
@@ -25,7 +25,7 @@ int	main(void)
 	ft_swap(&nmb1, &nmb2);
 	printf("After swap: nmb1 = %d, nmb2 = %d\n", nmb1, nmb2);
 	return (0);
-}
+}*/
 
 void	ft_swap(int *a, int *b)
 {
