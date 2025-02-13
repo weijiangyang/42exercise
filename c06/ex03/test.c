@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:38:35 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/20 16:43:06 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 11:39:40 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ void	write_str(char *str);
 
 int	main(int argc, char **argv)
 {
-	char	*str1;
-	char	*str2;
-	int		result;
-	int		index;
-	int		j;
+	int index;
 
 	index = 1;
 	sort_arguments(argc, argv);
@@ -36,9 +32,6 @@ int	main(int argc, char **argv)
 
 int	ft_str_cmp(char *str1, char *str2)
 {
-	int	result;
-	int	index;
-
 	while (*str1 || *str2)
 	{
 		if (*str1 != *str2)
