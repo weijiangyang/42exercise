@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:46:43 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/17 11:47:49 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 22:27:49 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <string.h>
 
-char	*ft_strcpy(char *dest, char *src);
+/*char	*ft_strcpy(char *dest, char *src);
 
 int	main(void)
 {
@@ -25,15 +25,18 @@ int	main(void)
 	ft_strcpy(dest, src);
 	printf ("%s\n", dest);
 	return (0);
-}
+}*/
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	while (*src)
+	int i;
+
+	i = 0;
+	while (src[i])
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		dest[i] = src[i];
+		i++;
 	}
-	*dest = '\0';
+	dest[i] = '\0';
+	return (dest);
 }
