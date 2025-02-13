@@ -6,14 +6,14 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 10:41:54 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/16 10:43:56 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 12:10:45 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strlen(char *str);
+/*int	ft_strlen(char *str);
 
 int	main(void)
 {
@@ -22,7 +22,7 @@ int	main(void)
 	result = ft_strlen("hello, weijiang");
 	printf ("length of this str is %d", result);
 	return (0);
-}
+}*/
 
 int	ft_strlen(char *str)
 {
