@@ -6,26 +6,22 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:05:08 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/16 11:27:24 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 10:47:33 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
 int		is_safe(int board[10], int col, int row);
 void	solve(int board[10], int col, int *count);
-int		ft_ten_queens_puzzle(void);
 void	print_puzzle(int board[10], int *count);
-void	int_to_char(int nb);
-
-int	main(void)
+/*int	main(void)
 {
 	int	result;
 
 	result = ft_ten_queens_puzzle();
 	int_to_char(result);
 	return (0);
-}
+}*/
 
 int	ft_ten_queens_puzzle(void)
 {
@@ -56,11 +52,9 @@ int	is_safe(int board[10], int col, int row)
 
 void	solve(int board[10], int col, int *count)
 {
-	char	sign;
 	int		row;
 
 	row = 0;
-	sign = '\n';
 	if (col == 10)
 		print_puzzle(board, count);
 	while (row < 10)
@@ -92,23 +86,3 @@ void	print_puzzle(int board[10], int *count)
 	(*count)++;
 }
 
-void	int_to_char(int nb)
-{
-	char	str[1000];
-	int		index;
-	char	letter;
-
-	index = 0;
-	while (nb != 0)
-	{
-		str[index] = nb % 10;
-		index++;
-		nb = nb / 10;
-	}
-	while (index > 0)
-	{
-		letter = str[index - 1] + '0';
-		write (1, &letter, 1);
-		index--;
-	}
-}
