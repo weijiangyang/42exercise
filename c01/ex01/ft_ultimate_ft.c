@@ -6,14 +6,14 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:55:50 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/10 16:57:26 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/13 11:59:25 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_ultimate_ft(int *********nbr);
+/*int	ft_ultimate_ft(int *********nbr);
 
 int	main(void)
 {
@@ -42,10 +42,10 @@ int	main(void)
     	ft_ultimate_ft(ptr9);
 	printf ("After: %d\n", value);  // Outputs: After: 42	
 	return (0);
-}
+}*/
 
-int	ft_ultimate_ft(int  *********nbr)
+void	ft_ultimate_ft(int  *********nbr)
 {
-	*********nbr = 42;
+	 *********nbr = 42;
 
 }
