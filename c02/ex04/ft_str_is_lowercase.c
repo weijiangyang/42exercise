@@ -6,14 +6,13 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:10:35 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:12:15 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 10:53:17 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-int	ft_str_is_lowercase(char *str);
+/*int	ft_str_is_lowercase(char *str);
 
 int	main(void)
 {
@@ -24,20 +23,15 @@ int	main(void)
 	result = ft_str_is_lowercase(message);
 	printf ("%d\n", result);
 	return (0);
-}
+}*/
 
 int	ft_str_is_lowercase(char *str)
 {
-	int	flag;
-
-	flag = 1;
 	while (*str)
 	{
 		if (*str < 96 || *str > 122)
-		{
-			flag = 0;
-		}
+			return (0);			
 		str++;
 	}
-	return (flag);
+	return (1);
 }
