@@ -6,14 +6,9 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/02/14 10:30:15 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 10:31:55 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
 /*int	ft_str_is_numeric(char *str);
 
 int	main(void)
