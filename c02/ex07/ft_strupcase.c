@@ -6,15 +6,11 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:06:49 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 22:08:19 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 11:43:05 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-char	*ft_strupcase(char *str);
+/*char	*ft_strupcase(char *str);
 
 int	main(void)
 {
@@ -29,18 +25,19 @@ int	main(void)
 	result = ft_strupcase(message);
 	printf ("%s\n", message);
 	return (0);
-}
+}*/
 
 char	*ft_strupcase(char *str)
 {
-	int	count;
+	int i;
 
-	count = 0;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		*str = toupper(*str);
-		str++;
-		count++;
+		if (str[i] > 96 && str[i] < 123)
+			str[i] -= 32;
+		i++;
 	}
-	return (str - count);
+	return (str);
 }
+
