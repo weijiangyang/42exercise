@@ -6,15 +6,11 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:51:25 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/19 22:35:06 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 16:03:51 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-
-char	*ft_strcapitalize(char *str);
+/*char	*ft_strcapitalize(char *str);
 
 int	main(void)
 {
@@ -24,31 +20,55 @@ int	main(void)
 	result = ft_strcapitalize(words);
 	printf ("%s", result);
 	return (0);
-}
+}*/
+int is_alphanumeric(char c);
 
 char	*ft_strcapitalize(char *str)
 {
-	int		non_capitalized;
-	char	*original;
+	int i;
 
-	original = str;
-	non_capitalized = 1;
-	while (*str)
+	i = 0;
+	if (str[i] > 96 && str[i] < 123 )
+		str[i] -= 32;
+	i++;
+	while (str[i])
 	{
-		if (isalnum(*str))
-		{
-			if ((non_capitalized && !isalpha(*str)) || 
-			  (non_capitalized && isalpha(*str) && islower(*str)))
-			{
-				*str = toupper(*str);				
-				non_capitalized = 0;
-			}
-			else if (!non_capitalized && isalpha(*str) && isupper(*str))
-				*str = tolower(*str);	
-		}
-		else	
-			non_capitalized = 1;
-		str++;
+		if (!is_alphanumeric(str[i - 1]) && str[i] > 96 && str[i] < 123)
+			str[i] -= 32;
+		if (is_alphanumeric(str[i - 1]) && str[i] > 64 && str[i] < 91)
+			str[i] += 32;
+		i++;
 	}
-	return (original);
+	return str;
 }
+
+int is_alphanumeric(char c)
+{
+	if ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123))
+		return 1;
+	else
+		return 0;
+} 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
