@@ -6,14 +6,14 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:09:51 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/17 17:22:10 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 09:58:56 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
+/*char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
 int	main(void)
 {
@@ -30,18 +30,27 @@ int	main(void)
 		index++;
 	}
 	return (0);
-}
+}*/
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	count;
+	unsigned int	i;
 
-	count = 0;
-	while (count < n && *src)
+	i = 0;
+	while (i < n && src[i])
 	{
-		*dest = *src;
-		src++;
-		dest++;
-		count++;
+		dest[i] = src[i];
+		i++;
 	}
+	if (src[i] == '\0')
+	{
+		while (i < n)
+		{
+			dest[i] = '\0';
+			i++;
+		}
+	}
+	else
+		dest[i] = '\0';
+	return (dest);
 }
