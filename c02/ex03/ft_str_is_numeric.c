@@ -6,7 +6,7 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:58:10 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 11:02:19 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 10:30:15 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int	ft_str_is_numeric(char *str);
+/*int	ft_str_is_numeric(char *str);
 
 int	main(void)
 {
@@ -25,20 +25,15 @@ int	main(void)
 	result = ft_str_is_numeric(message);
 	printf ("%d\n", result);
 	return (0);
-}
+}*/
 
 int	ft_str_is_numeric(char *str)
 {
-	int	flag;
-
-	flag = 1;
 	while (*str)
 	{
-		if (!isdigit(*str))
-		{
-			flag = 0;
-		}
+		if (*str < 48 || *str > 57)
+			return (0);	
 		str++;
 	}
-	return (flag);
+	return (1);
 }
