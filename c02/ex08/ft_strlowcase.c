@@ -6,15 +6,11 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:06:49 by weijiangyang      #+#    #+#             */
-/*   Updated: 2024/12/18 22:13:50 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/14 11:56:02 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-char	*ft_strlowcase(char *str);
+/*char	*ft_strlowcase(char *str);
 
 int	main(void)
 {
@@ -29,18 +25,18 @@ int	main(void)
 	result = ft_strlowcase(message);
 	printf ("%s\n", message);
 	return (0);
-}
+}*/
 
 char	*ft_strlowcase(char *str)
 {
-	int	count;
+	int i;
 
-	count = 0;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		*str = tolower(*str);
-		str++;
-		count++;
+		if (str[i] > 64 && str[i] < 91)
+			str[i] += 32;
+		i++;
 	}
-	return (str - count);
+	return (str);
 }
