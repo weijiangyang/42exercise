@@ -6,64 +6,31 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 21:39:38 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/03 21:42:46 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/16 21:09:51 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-
-char	*ft_strstr(char *str, char *to_find);
-int		ft_strstr_test(char *str, char *to_find);
-
-int	main(void)
-{
-	char	*str;
-	char	*to_find;
-	char	*result;
-
-	str = "hello, les gars!";
-	to_find = "!";
-	result = ft_strstr(str, to_find);
-	printf ("%s", result);
-	return (0);
-}
-
 char	*ft_strstr(char *str, char *to_find)
 {
-	int		flag;
-	char	*copied;
-	int		result;
+	int	i;
+	int	j;
 
-	copied = str;
-	while (*str && *to_find)
+	i = 0;
+	if (*to_find == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (*to_find == *str)
+		j = 0;
+		while (str[i + j] != '\0' && to_find[j] != '\0')
 		{
-			result = ft_strstr_test(str, to_find);
-			if (result == 0)
-				return (copied);
+			if (str[i + j] == to_find[j])
+				j++;
 			else
-			{
-				str++;
-			}
+				break ;
+			if (to_find[j] == '\0')
+				return (str + i);
 		}
-		else
-			str++;
-	}
-	return (NULL);
-}
-
-int	ft_strstr_test(char *str, char *to_find)
-{
-	while (*str && *to_find)
-	{
-		if (*str != *to_find)
-			return (1);
-		else
-		{
-			str++;
-			to_find++;
-		}
+		i++;
 	}
 	return (0);
 }
+
