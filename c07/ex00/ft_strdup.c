@@ -6,46 +6,42 @@
 /*   By: weijiangyang <weijiangyang@laposte.net>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:15:01 by weijiangyang      #+#    #+#             */
-/*   Updated: 2025/01/30 21:29:37 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/02/16 22:14:19 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-char	*ft_strdup(char *s);
-
-int	main(void)
+int	ft_strlen(char *str)
 {
-	char	*str;
+	int	i;
 
-	str = ft_strdup("salut");
-	printf ("%s\n", str);
-	free(str);
-	return (0);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(char *src)
 {
-	int		size;
-	char	*memory;
+	char	*dest;
+	int		len_src;
 	int		i;
 
-	size = 0;
+	if (src == NULL)
+		return (NULL);
+	len_src = ft_strlen(src);
+	dest = (char *)malloc((len_src + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
 	i = 0;
-	while (*s)
+	while (src[i] != '\0')
 	{
-		size++;
-		s++;
-	}
-	s = s - size;
-	memory = malloc((size + 1) * sizeof(char));
-	while (i < size)
-	{
-		memory[i] = *s;
+		dest[i] = src[i];
 		i++;
-		s++;
 	}
-	memory[i] = '\0';
-	return (memory);
+	dest[i] = '\0';
+	return (dest);
 }
